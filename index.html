@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Survivor Chaos - Can You Survive?</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game-container">
+    <canvas id="gameCanvas"></canvas>
+    <div id="ui-overlay">
+      <div id="health-bar">
+        <div id="health-fill"></div>
+        <span id="health-text">100/100</span>
+      </div>
+      <div id="xp-bar">
+        <div id="xp-fill"></div>
+        <span id="xp-text">Level 1</span>
+      </div>
+      <div id="stats">
+        <span id="kill-count">Kills: 0</span>
+        <span id="time-survived">Time: 0:00</span>
+        <span id="gold-count">Gold: 0</span>
+      </div>
+      <div id="combo-display" class="hidden">
+        <span id="combo-text">COMBO x1</span>
+      </div>
+    </div>
+    <div id="start-screen">
+      <h1>SURVIVOR CHAOS</h1>
+      <p class="tagline">How long can you survive?</p>
+      <div id="high-score-display">Best: <span id="best-time">0:00</span></div>
+      <button id="start-btn">START GAME</button>
+      <p class="controls-hint">WASD or Arrow Keys to move</p>
+    </div>
+    <div id="level-up-screen" class="hidden">
+      <h2>LEVEL UP!</h2>
+      <div id="upgrade-options"></div>
+    </div>
+    <div id="game-over-screen" class="hidden">
+      <h2>GAME OVER</h2>
+      <p id="final-stats"></p>
+      <p id="achievement-unlock" class="hidden"></p>
+      <button id="retry-btn">TRY AGAIN</button>
+      <p class="taunt" id="taunt-text"></p>
+    </div>
+    <div id="achievement-popup" class="hidden">
+      <span id="achievement-text"></span>
+    </div>
+  </div>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
