@@ -2,52 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Survivor Chaos - Can You Survive?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Pixel Survivors</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="game-container">
     <canvas id="gameCanvas"></canvas>
+    
     <div id="ui-overlay">
-      <div id="health-bar">
-        <div id="health-fill"></div>
-        <span id="health-text">100/100</span>
+      <div id="top-bar">
+        <div id="health-container">
+          <div id="health-bar"><div id="health-fill"></div></div>
+          <span id="health-text">100/100</span>
+        </div>
+        <div id="xp-container">
+          <div id="xp-bar"><div id="xp-fill"></div></div>
+          <span id="level-text">LV 1</span>
+        </div>
       </div>
-      <div id="xp-bar">
-        <div id="xp-fill"></div>
-        <span id="xp-text">Level 1</span>
+      <div id="stats-bar">
+        <span id="time-display">00:00</span>
+        <span id="kill-display">☠ 0</span>
+        <span id="gold-display">💰 0</span>
       </div>
-      <div id="stats">
-        <span id="kill-count">Kills: 0</span>
-        <span id="time-survived">Time: 0:00</span>
-        <span id="gold-count">Gold: 0</span>
+      <div id="weapons-bar"></div>
+    </div>
+
+    <div id="start-screen" class="screen">
+      <div class="screen-content">
+        <h1 class="pixel-title">PIXEL SURVIVORS</h1>
+        <p class="subtitle">How long can you survive?</p>
+        <div id="records">
+          <p>Best Time: <span id="best-time">00:00</span></p>
+          <p>Total Kills: <span id="total-kills">0</span></p>
+        </div>
+        <button id="start-btn" class="pixel-btn">START GAME</button>
+        <p class="hint">WASD or Arrow Keys to move</p>
       </div>
-      <div id="combo-display" class="hidden">
-        <span id="combo-text">COMBO x1</span>
+    </div>
+
+    <div id="levelup-screen" class="screen hidden">
+      <div class="screen-content">
+        <h2 class="pixel-title gold">LEVEL UP!</h2>
+        <p class="subtitle">Choose your upgrade</p>
+        <div id="upgrade-cards"></div>
       </div>
     </div>
-    <div id="start-screen">
-      <h1>SURVIVOR CHAOS</h1>
-      <p class="tagline">How long can you survive?</p>
-      <div id="high-score-display">Best: <span id="best-time">0:00</span></div>
-      <button id="start-btn">START GAME</button>
-      <p class="controls-hint">WASD or Arrow Keys to move</p>
+
+    <div id="gameover-screen" class="screen hidden">
+      <div class="screen-content">
+        <h2 class="pixel-title red">GAME OVER</h2>
+        <div id="final-stats"></div>
+        <p id="taunt" class="taunt"></p>
+        <button id="retry-btn" class="pixel-btn">RETRY</button>
+      </div>
     </div>
-    <div id="level-up-screen" class="hidden">
-      <h2>LEVEL UP!</h2>
-      <div id="upgrade-options"></div>
-    </div>
-    <div id="game-over-screen" class="hidden">
-      <h2>GAME OVER</h2>
-      <p id="final-stats"></p>
-      <p id="achievement-unlock" class="hidden"></p>
-      <button id="retry-btn">TRY AGAIN</button>
-      <p class="taunt" id="taunt-text"></p>
-    </div>
-    <div id="achievement-popup" class="hidden">
-      <span id="achievement-text"></span>
-    </div>
+
+    <div id="toast" class="hidden"></div>
   </div>
   <script type="module" src="game.js"></script>
 </body>
